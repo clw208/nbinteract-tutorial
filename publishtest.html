@@ -2,8 +2,12 @@
 <html>
 <head><meta charset="utf-8" />
 
-
 <title>publishtest</title>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
 
 <style type="text/css">
     /*!
@@ -13029,17 +13033,20 @@ div#notebook {
   div.cell {
     display: block;
     page-break-inside: avoid;
-  }
-  div.output_wrapper {
+  } 
+  div.output_wrapper { 
     display: block;
-    page-break-inside: avoid;
+    page-break-inside: avoid; 
   }
-  div.output {
+  div.output { 
     display: block;
-    page-break-inside: avoid;
+    page-break-inside: avoid; 
   }
 }
 </style>
+
+<!-- Custom stylesheet, it must be in the same directory as the html file -->
+<link rel="stylesheet" href="custom.css">
 
 <!-- Loading mathjax macro -->
 <!-- Load mathjax -->
@@ -13062,531 +13069,298 @@ div#notebook {
         }
     });
     </script>
-    <!-- End of mathjax configuration -->
-
-<style>
-        .cell.nbinteract-left {
-            width: 50%;
-            float: left;
-        }
-
-        .cell.nbinteract-right {
-            width: 50%;
-            float: right;
-        }
-
-        .cell.nbinteract-hide_in > .input {
-            display: none;
-        }
-
-        .cell.nbinteract-hide_out > .output_wrapper {
-            display: none;
-        }
-
-        .cell:after {
-          content: "";
-          display: table;
-          clear: both;
-        }
-
-        div.output_subarea {
-            max-width: initial;
-        }
-
-        .jp-OutputPrompt {
-            display: none;
-        }
-    </style></head>
+    <!-- End of mathjax configuration --></head>
 <body>
   <div tabindex="-1" id="notebook" class="border-box-sizing">
-    <div class="container">
-      
+    <div class="container" id="notebook-container">
+
+<div class="cell border-box-sizing code_cell rendered">
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
 
 
 
-  <div class="cell text_cell">
-    <button class="js-nbinteract-widget">
-      Loading widgets...
-    </button>
-  </div>
 
-
-# This is a cell to hide code snippets from displaying
-# This must be at first cell!
-
-from IPython.display import HTML
-
-hide_me = ''
-HTML('''<script>
-code_show=true; 
-function code_toggle() {
-  if (code_show) {
-    $('div.input').each(function(id) {
-      el = $(this).find('.cm-variable:first');
-      if (id == 0 || el.text() == 'hide_me') {
-        $(this).hide();
-      }
-    });
-    $('div.output_prompt').css('opacity', 0);
-  } else {
-    $('div.input').each(function(id) {
-      $(this).show();
-    });
-    $('div.output_prompt').css('opacity', 1);
-  }
-  code_show = !code_show
-} 
-$( document ).ready(code_toggle);
+ 
+ 
+<div id="608808f1-87b5-4fcb-868e-4b80b66cc21f"></div>
+<div class="output_subarea output_widget_view ">
+<script type="text/javascript">
+var element = $('#608808f1-87b5-4fcb-868e-4b80b66cc21f');
 </script>
-<form action="javascript:code_toggle()"><input style="opacity:0" type="submit" value="Click here to toggle on/off the raw code."></form>''')hide me
-print "this code will be hidden"print "this code will be shown"
-
-  
-
-  <div class="
-      cell border-box-sizing code_cell rendered">
-    <div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">ipywidgets</span> <span class="k">import</span> <span class="n">widgets</span><span class="p">,</span> <span class="n">interact</span><span class="p">,</span> <span class="n">Dropdown</span><span class="p">,</span><span class="n">SelectMultiple</span>
-<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="k">import</span> <span class="n">display</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">re</span>
-<span class="kn">import</span> <span class="nn">os</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-  </div>
-
-  
-
-  <div class="
-      cell border-box-sizing code_cell rendered">
-    <div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># input files from other python scripts</span>
-<span class="n">data_python</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s1">&#39;..&#39;</span><span class="p">,</span> <span class="s1">&#39;Python_Scripts&#39;</span><span class="p">)</span>
-<span class="n">data_out</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s1">&#39;..&#39;</span><span class="p">,</span> <span class="s1">&#39;Output&#39;</span><span class="p">)</span>
-<span class="n">data_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s1">&#39;..&#39;</span><span class="p">,</span><span class="s1">&#39;Databases&#39;</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-  </div>
-
-  
-
-  <div class="
-      cell border-box-sizing code_cell rendered">
-    <div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span> 
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-  </div>
-
-  
-
-  <div class="
-      cell border-box-sizing code_cell rendered">
-    <div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="p">[[</span><span class="s1">&#39;A&#39;</span><span class="p">,</span><span class="s1">&#39;B&#39;</span><span class="p">]]</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-  </div>
-
-  
-
-  <div class="
-      cell border-box-sizing code_cell rendered">
-    <div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">runcode</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s1">&#39;Build Database&#39;</span><span class="p">)</span>
-<span class="n">output</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">Output</span><span class="p">()</span>
-<span class="n">display</span><span class="p">(</span><span class="n">runcode</span><span class="p">,</span><span class="n">output</span><span class="p">)</span>
-<span class="k">def</span> <span class="nf">on_button_clicked</span><span class="p">(</span><span class="n">b</span><span class="p">):</span>
-    <span class="k">with</span> <span class="n">output</span><span class="p">:</span>
-        <span class="c1">#%run readother.ipynb</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Building the database for your country and season&#39;</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">df</span>
-        
-<span class="n">runcode</span><span class="o">.</span><span class="n">on_click</span><span class="p">(</span><span class="n">on_button_clicked</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    
-
-
-
-  <div class="output_subarea output_widget_view ">
-    <button class="js-nbinteract-widget">
-      Loading widgets...
-    </button>
-  </div>
-
-</div>
-
-<div class="output_area">
-
-    
-
-
-
-  <div class="output_subarea output_widget_view ">
-    <button class="js-nbinteract-widget">
-      Loading widgets...
-    </button>
-  </div>
-
-</div>
-
-</div>
-</div>
-
-  </div>
-
-  
-
-  <div class="
-      cell border-box-sizing code_cell rendered">
-    <div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">style</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;description_width&#39;</span><span class="p">:</span> <span class="s1">&#39;initial&#39;</span><span class="p">}</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-  </div>
-
-  
-
-  <div class="
-      cell border-box-sizing code_cell rendered">
-    <div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># choose the month for optimization</span>
-<span class="n">mnths</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;jan&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="s1">&#39;feb&#39;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="s1">&#39;mar&#39;</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span><span class="s1">&#39;apr&#39;</span><span class="p">:</span><span class="mi">4</span><span class="p">,</span><span class="s1">&#39;may&#39;</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span><span class="s1">&#39;jun&#39;</span><span class="p">:</span><span class="mi">6</span><span class="p">,</span><span class="s1">&#39;jul&#39;</span><span class="p">:</span><span class="mi">7</span><span class="p">,</span><span class="s1">&#39;aug&#39;</span><span class="p">:</span><span class="mi">8</span><span class="p">,</span><span class="s1">&#39;sep&#39;</span><span class="p">:</span><span class="mi">9</span><span class="p">,</span><span class="s1">&#39;oct&#39;</span><span class="p">:</span><span class="mi">10</span><span class="p">,</span><span class="s1">&#39;nov&#39;</span><span class="p">:</span><span class="mi">11</span><span class="p">,</span><span class="s1">&#39;dec&#39;</span><span class="p">:</span><span class="mi">12</span><span class="p">}</span>
-<span class="n">var2</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">Dropdown</span><span class="p">(</span><span class="n">options</span> <span class="o">=</span> <span class="n">mnths</span><span class="o">.</span><span class="n">keys</span><span class="p">(),</span><span class="n">value</span><span class="o">=</span><span class="s1">&#39;aug&#39;</span><span class="p">)</span>
-<span class="n">display</span><span class="p">(</span><span class="n">var2</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    
-
-
-
-  <div class="output_subarea output_widget_view ">
-    <button class="js-nbinteract-widget">
-      Loading widgets...
-    </button>
-  </div>
-
-</div>
-
-</div>
-</div>
-
-  </div>
-
-  
-
-  <div class="
-      cell border-box-sizing code_cell rendered">
-    <div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">cntry</span><span class="o">=</span><span class="s1">&#39;CH&#39;</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-  </div>
-
-  
-
-  <div class="
-      cell border-box-sizing code_cell rendered">
-    <div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># variables to support the interactive dropdowns below</span>
-<span class="n">gender</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;female&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="s1">&#39;male&#39;</span><span class="p">:</span><span class="mi">0</span><span class="p">}</span>
-<span class="n">preferences</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;vegetarian&#39;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="s1">&#39;vegan&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="s1">&#39;none&#39;</span><span class="p">:</span><span class="mi">2</span><span class="p">}</span>
-<span class="n">indicator</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;climate change&#39;</span><span class="p">:</span><span class="s1">&#39;GHG&#39;</span><span class="p">,</span><span class="s1">&#39;biodiversity loss&#39;</span><span class="p">:</span><span class="s1">&#39;BIO&#39;</span><span class="p">,</span><span class="s1">&#39;both&#39;</span><span class="p">:</span><span class="s1">&#39;any&#39;</span><span class="p">}</span>
-<span class="n">activity</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;sedentary&#39;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="s1">&#39;moderate&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="s1">&#39;vigorous&#39;</span><span class="p">:</span><span class="mi">2</span><span class="p">}</span>
-<span class="n">supp</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;yes&#39;</span><span class="p">:</span><span class="s1">&#39;yes_sup&#39;</span><span class="p">,</span><span class="s1">&#39;no&#39;</span><span class="p">:</span><span class="s1">&#39;no_sup&#39;</span><span class="p">}</span>
-<span class="n">weighting</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;climate change&#39;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="s1">&#39;biodiversity loss&#39;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="s1">&#39;both&#39;</span><span class="p">:</span><span class="mf">0.5</span><span class="p">}</span>
-<span class="k">def</span> <span class="nf">weighting</span><span class="p">(</span><span class="n">impact</span><span class="p">):</span>
-    <span class="k">if</span> <span class="n">impact</span> <span class="o">==</span> <span class="s1">&#39;GHG&#39;</span> <span class="ow">or</span> <span class="s1">&#39;BIO&#39;</span><span class="p">:</span> <span class="n">w</span> <span class="o">=</span> <span class="mi">0</span>
-    <span class="k">elif</span> <span class="n">impact</span> <span class="o">==</span> <span class="s1">&#39;both&#39;</span><span class="p">:</span><span class="n">w</span> <span class="o">=</span> <span class="mf">0.5</span>
-    <span class="k">else</span><span class="p">:</span> <span class="n">w</span> <span class="o">=</span> <span class="mi">0</span>
-    <span class="k">return</span> <span class="n">w</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-  </div>
-
-  
-
-  <div class="
-      cell border-box-sizing code_cell rendered">
-    <div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">imp</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">Dropdown</span><span class="p">(</span><span class="n">options</span><span class="o">=</span><span class="n">indicator</span><span class="o">.</span><span class="n">values</span><span class="p">(),</span><span class="n">description</span><span class="o">=</span><span class="s1">&#39;Impact&#39;</span><span class="p">)</span>
-<span class="n">display</span><span class="p">(</span><span class="n">imp</span><span class="p">)</span>
-<span class="n">gen</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">Dropdown</span><span class="p">(</span><span class="n">options</span><span class="o">=</span><span class="n">gender</span><span class="o">.</span><span class="n">values</span><span class="p">(),</span><span class="n">description</span><span class="o">=</span><span class="s1">&#39;Gender:&#39;</span><span class="p">)</span>
-<span class="n">display</span><span class="p">(</span><span class="n">gen</span><span class="p">)</span>
-<span class="n">weight</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">IntText</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s1">&#39;Weight (kg):&#39;</span><span class="p">,</span><span class="n">value</span><span class="o">=</span><span class="mi">60</span><span class="p">)</span>
-<span class="n">display</span><span class="p">(</span><span class="n">weight</span><span class="p">)</span>
-<span class="n">height</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">IntText</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s1">&#39;Height (cm):&#39;</span><span class="p">,</span><span class="n">value</span><span class="o">=</span><span class="mi">165</span><span class="p">)</span>
-<span class="n">display</span><span class="p">(</span><span class="n">height</span><span class="p">)</span>
-<span class="n">age</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">IntText</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s1">&#39;Age (yrs):&#39;</span><span class="p">,</span><span class="n">value</span><span class="o">=</span><span class="mi">40</span><span class="p">)</span>
-<span class="n">display</span><span class="p">(</span><span class="n">age</span><span class="p">)</span>
-<span class="n">act</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">Dropdown</span><span class="p">(</span><span class="n">options</span><span class="o">=</span><span class="n">activity</span><span class="o">.</span><span class="n">keys</span><span class="p">(),</span><span class="n">description</span><span class="o">=</span><span class="s1">&#39;Activity Level:&#39;</span><span class="p">,</span><span class="n">value</span><span class="o">=</span><span class="s1">&#39;moderate&#39;</span><span class="p">)</span>
-<span class="n">display</span><span class="p">(</span><span class="n">act</span><span class="p">)</span>
-<span class="n">sup</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">Dropdown</span><span class="p">(</span><span class="n">options</span><span class="o">=</span><span class="n">supp</span><span class="o">.</span><span class="n">values</span><span class="p">(),</span><span class="n">description</span><span class="o">=</span><span class="s1">&#39;Supplements?&#39;</span><span class="p">,</span><span class="n">style</span><span class="o">=</span><span class="n">style</span><span class="p">)</span>
-<span class="n">display</span><span class="p">(</span><span class="n">sup</span><span class="p">)</span>
-<span class="n">days</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">BoundedIntText</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s1">&#39;Number of Days:&#39;</span><span class="p">,</span><span class="n">style</span><span class="o">=</span><span class="n">style</span><span class="p">,</span><span class="n">value</span><span class="o">=</span><span class="mi">7</span><span class="p">)</span>
-<span class="n">display</span><span class="p">(</span><span class="n">days</span><span class="p">)</span>
-<span class="n">diettype</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">Dropdown</span><span class="p">(</span><span class="n">options</span><span class="o">=</span><span class="n">preferences</span><span class="o">.</span><span class="n">keys</span><span class="p">(),</span><span class="n">description</span><span class="o">=</span><span class="s1">&#39;Dietary Preferences:&#39;</span><span class="p">,</span><span class="n">style</span><span class="o">=</span><span class="n">style</span><span class="p">,</span><span class="n">value</span><span class="o">=</span><span class="s1">&#39;none&#39;</span><span class="p">)</span>
-<span class="n">display</span><span class="p">(</span><span class="n">diettype</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    
-
-
-
-  <div class="output_subarea output_widget_view ">
-    <button class="js-nbinteract-widget">
-      Loading widgets...
-    </button>
-  </div>
-
-</div>
-
-<div class="output_area">
-
-    
-
-
-
-  <div class="output_subarea output_widget_view ">
-    <button class="js-nbinteract-widget">
-      Loading widgets...
-    </button>
-  </div>
-
-</div>
-
-<div class="output_area">
-
-    
-
-
-
-  <div class="output_subarea output_widget_view ">
-    <button class="js-nbinteract-widget">
-      Loading widgets...
-    </button>
-  </div>
-
-</div>
-
-<div class="output_area">
-
-    
-
-
-
-  <div class="output_subarea output_widget_view ">
-    <button class="js-nbinteract-widget">
-      Loading widgets...
-    </button>
-  </div>
-
-</div>
-
-<div class="output_area">
-
-    
-
-
-
-  <div class="output_subarea output_widget_view ">
-    <button class="js-nbinteract-widget">
-      Loading widgets...
-    </button>
-  </div>
-
-</div>
-
-<div class="output_area">
-
-    
-
-
-
-  <div class="output_subarea output_widget_view ">
-    <button class="js-nbinteract-widget">
-      Loading widgets...
-    </button>
-  </div>
-
-</div>
-
-<div class="output_area">
-
-    
-
-
-
-  <div class="output_subarea output_widget_view ">
-    <button class="js-nbinteract-widget">
-      Loading widgets...
-    </button>
-  </div>
-
-</div>
-
-<div class="output_area">
-
-    
-
-
-
-  <div class="output_subarea output_widget_view ">
-    <button class="js-nbinteract-widget">
-      Loading widgets...
-    </button>
-  </div>
-
-</div>
-
-<div class="output_area">
-
-    
-
-
-
-  <div class="output_subarea output_widget_view ">
-    <button class="js-nbinteract-widget">
-      Loading widgets...
-    </button>
-  </div>
-
-</div>
-
-</div>
-</div>
-
-  </div>
-
-  
-
-  <div class="
-      cell border-box-sizing code_cell rendered">
-    <div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span> 
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-  </div>
-
-
-
-<!-- Loads nbinteract package -->
-<script src="https://unpkg.com/nbinteract-core" async></script>
-<script>
-  (function setupNbinteract() {
-    // If NbInteract hasn't loaded, wait one second and try again
-    if (window.NbInteract === undefined) {
-      setTimeout(setupNbinteract, 1000)
-      return
-    }
-
-    var interact = new window.NbInteract({
-      spec: 'clw208/nbinteract-tutorial/master',
-      baseUrl: 'https://mybinder.org',
-      provider: 'gh',
-    })
-    interact.prepare()
-
-    window.interact = interact
-  })()
+<script type="application/vnd.jupyter.widget-view+json">
+{"model_id": "9df67fd2816d4f78ab2640d52e6ed956", "version_major": 2, "version_minor": 0}
 </script>
+</div>
+
+</div>
+
+<div class="output_area">
+
+
+
+
+ 
+ 
+<div id="6bd848c0-6045-4a69-a731-0692ce8fbf2e"></div>
+<div class="output_subarea output_widget_view ">
+<script type="text/javascript">
+var element = $('#6bd848c0-6045-4a69-a731-0692ce8fbf2e');
+</script>
+<script type="application/vnd.jupyter.widget-view+json">
+{"model_id": "ba3587f798b842de8c3be94597bdb18b", "version_major": 2, "version_minor": 0}
+</script>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+
+ 
+ 
+<div id="c68c5132-44b9-4d71-803f-4c094b283772"></div>
+<div class="output_subarea output_widget_view ">
+<script type="text/javascript">
+var element = $('#c68c5132-44b9-4d71-803f-4c094b283772');
+</script>
+<script type="application/vnd.jupyter.widget-view+json">
+{"model_id": "5bb059fb87ea49b7b20a26b2208ee9c6", "version_major": 2, "version_minor": 0}
+</script>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+
+ 
+ 
+<div id="0305cc54-c1d8-41d1-bb60-c9c3c1da17e3"></div>
+<div class="output_subarea output_widget_view ">
+<script type="text/javascript">
+var element = $('#0305cc54-c1d8-41d1-bb60-c9c3c1da17e3');
+</script>
+<script type="application/vnd.jupyter.widget-view+json">
+{"model_id": "cc9747452ecb4b89b0a191b5bb655156", "version_major": 2, "version_minor": 0}
+</script>
+</div>
+
+</div>
+
+<div class="output_area">
+
+
+
+
+ 
+ 
+<div id="296b4c50-5e9d-470d-b651-04da71e3bb18"></div>
+<div class="output_subarea output_widget_view ">
+<script type="text/javascript">
+var element = $('#296b4c50-5e9d-470d-b651-04da71e3bb18');
+</script>
+<script type="application/vnd.jupyter.widget-view+json">
+{"model_id": "e24ae8d74e9b4afbbdf611a26676bc10", "version_major": 2, "version_minor": 0}
+</script>
+</div>
+
+</div>
+
+<div class="output_area">
+
+
+
+
+ 
+ 
+<div id="14d7819d-2b2f-45f5-9793-bfe2f83f84d8"></div>
+<div class="output_subarea output_widget_view ">
+<script type="text/javascript">
+var element = $('#14d7819d-2b2f-45f5-9793-bfe2f83f84d8');
+</script>
+<script type="application/vnd.jupyter.widget-view+json">
+{"model_id": "1c9b2624879f49fe80e34f0200329c66", "version_major": 2, "version_minor": 0}
+</script>
+</div>
+
+</div>
+
+<div class="output_area">
+
+
+
+
+ 
+ 
+<div id="5edbe13d-a621-4bbd-9e0b-780900505aa0"></div>
+<div class="output_subarea output_widget_view ">
+<script type="text/javascript">
+var element = $('#5edbe13d-a621-4bbd-9e0b-780900505aa0');
+</script>
+<script type="application/vnd.jupyter.widget-view+json">
+{"model_id": "73da67a9460d40db9b76962dcfe52e64", "version_major": 2, "version_minor": 0}
+</script>
+</div>
+
+</div>
+
+<div class="output_area">
+
+
+
+
+ 
+ 
+<div id="b7d1a6bb-6054-436b-9a8d-fd89921f56ba"></div>
+<div class="output_subarea output_widget_view ">
+<script type="text/javascript">
+var element = $('#b7d1a6bb-6054-436b-9a8d-fd89921f56ba');
+</script>
+<script type="application/vnd.jupyter.widget-view+json">
+{"model_id": "4b60ec8a11034445ae202b8e9bae68b7", "version_major": 2, "version_minor": 0}
+</script>
+</div>
+
+</div>
+
+<div class="output_area">
+
+
+
+
+ 
+ 
+<div id="96a34a9d-f1f1-4597-983c-6b2db7b5e338"></div>
+<div class="output_subarea output_widget_view ">
+<script type="text/javascript">
+var element = $('#96a34a9d-f1f1-4597-983c-6b2db7b5e338');
+</script>
+<script type="application/vnd.jupyter.widget-view+json">
+{"model_id": "9b142b4246dd4f42a255ec9113777d54", "version_major": 2, "version_minor": 0}
+</script>
+</div>
+
+</div>
+
+<div class="output_area">
+
+
+
+
+ 
+ 
+<div id="b22ec572-ceea-4fea-a0fb-ecafc6a5bfc0"></div>
+<div class="output_subarea output_widget_view ">
+<script type="text/javascript">
+var element = $('#b22ec572-ceea-4fea-a0fb-ecafc6a5bfc0');
+</script>
+<script type="application/vnd.jupyter.widget-view+json">
+{"model_id": "c3127edf95c2413fb49df33cf9bacb7f", "version_major": 2, "version_minor": 0}
+</script>
+</div>
+
+</div>
+
+<div class="output_area">
+
+
+
+
+ 
+ 
+<div id="5d26795d-25de-466a-a6e1-35824a979524"></div>
+<div class="output_subarea output_widget_view ">
+<script type="text/javascript">
+var element = $('#5d26795d-25de-466a-a6e1-35824a979524');
+</script>
+<script type="application/vnd.jupyter.widget-view+json">
+{"model_id": "16b7dbbeb7494ac692441c4d6787a92d", "version_major": 2, "version_minor": 0}
+</script>
+</div>
+
+</div>
+
+<div class="output_area">
+
+
+
+
+ 
+ 
+<div id="d1b5a38a-b73d-4c2c-9b01-530a0b865d08"></div>
+<div class="output_subarea output_widget_view ">
+<script type="text/javascript">
+var element = $('#d1b5a38a-b73d-4c2c-9b01-530a0b865d08');
+</script>
+<script type="application/vnd.jupyter.widget-view+json">
+{"model_id": "04b7ff69228448e2b5cd9fcd212f6982", "version_major": 2, "version_minor": 0}
+</script>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+
+</div>
     </div>
   </div>
 </body>
+
+ 
+
+
+</html>
