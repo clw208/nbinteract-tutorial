@@ -13252,13 +13252,14 @@ div#notebook {
 <span class="n">output</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">Output</span><span class="p">()</span>
 <span class="c1">#display(runcode,output)</span>
 <span class="k">def</span> <span class="nf">on_button_clicked</span><span class="p">(</span><span class="n">b</span><span class="p">):</span>
-    <span class="k">global</span> <span class="n">dataframe</span>
-    <span class="o">%</span><span class="k">run</span> Build_Optimization_Database.ipynb
-    <span class="n">dataframe</span> <span class="o">=</span> <span class="n">calc_impacts</span><span class="p">(</span><span class="n">var1</span><span class="o">.</span><span class="n">value</span><span class="p">,</span><span class="n">var2</span><span class="o">.</span><span class="n">value</span><span class="p">)</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+    <span class="c1">#global dataframe</span>
+    <span class="c1">#%run Build_Optimization_Database.ipynb</span>
+    <span class="o">%</span><span class="k">run</span> readother.ipynb
+    <span class="c1">#dataframe = calc_impacts(var1.value,var2.value).copy()</span>
     <span class="c1">#dataframe = pd.DataFrame([0,1],columns=[&#39;a&#39;])</span>
     <span class="k">with</span> <span class="n">output</span><span class="p">:</span> 
         <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Building the database for your country and season&#39;</span><span class="p">)</span>
-        <span class="n">display</span><span class="p">(</span><span class="n">dataframe</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>
+        <span class="c1">#display(dataframe.head(2))</span>
         <span class="c1">#display(df100)</span>
     <span class="k">return</span> <span class="c1">#df100</span>
 </pre></div>
@@ -13686,7 +13687,7 @@ Status: Infeasible
     }
 
     var interact = new window.NbInteract({
-      spec: 'SamLau95/nbinteract-image/master',
+      spec: 'clw208/nbinteract-tutorial/master',
       baseUrl: 'https://mybinder.org',
       provider: 'gh',
     })
